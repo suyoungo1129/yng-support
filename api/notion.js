@@ -1,22 +1,29 @@
 const NOTION_VERSION = "2026-03-11";
 
 function plainText(richText = []) {
-  return richText.map(item => item.plain_text || "").join("");
+  return richText
+    .map((item) => item.plain_text || "")
+    .join("");
 }
 
 async function notionFetch(path) {
-  const response = await fetch(`https://api.notion.com/v1${path}`, {
-    headers: {
-      Authorization: `Bearer ${process.env.NOTION_TOKEN}`,
-      "Notion-Version": NOTION_VERSION,
-      "Content-Type": "application/json"
+  const response = await fetch(
+    `https://api.notion.com/v1${path}`,
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.NOTION_TOKEN}`,
+        "Notion-Version": NOTION_VERSION,
+        "Content-Type": "application/json"
+      }
     }
-  });
+  );
 
   const data = await response.json();
 
   if (!response.ok) {
-    throw new Error(data.message || "Notion API 오류");
+    throw new Error(
+      data.message || "Notion API 오류가 발생했습니다."
+    );
   }
 
   return data;
@@ -24,23 +31,26 @@ async function notionFetch(path) {
 
 async function getAllChildren(blockId) {
   let results = [];
-  let cursor;
+  let cursor = null;
 
   do {
-    const query = new URLSearchParams({
-      page_size: "100"
-    });
+    const params = new URLSearchParams();
+    params.set("page_size", "100");
 
     if (cursor) {
-      query.set("start_cursor", cursor);
+      params.set("start_cursor", cursor);
     }
 
     const data = await notionFetch(
-      `/blocks/${blockId}/children?${query.toString()}`
+      `/blocks/${blockId}/children?${params.toString()}`
     );
 
-    results = results.concat(data.results || []);
-    cursor = data.has_more ? data.next_cursor : null;
+    results.push(...(data.results || []));
+
+    cursor =
+      data.has_more && data.next_cursor
+        ? data.next_cursor
+        : null;
 
   } while (cursor);
 
@@ -51,12 +61,13 @@ async function transformBlock(block) {
   const type = block.type;
   const value = block[type] || {};
 
-  let result = {
+  const result = {
     id: block.id,
     type
   };
 
   switch (type) {
+
     case "paragraph":
     case "heading_1":
     case "heading_2":
@@ -70,15 +81,15 @@ async function transformBlock(block) {
 
     case "to_do":
       result.text = plainText(value.rich_text);
-      result.checked = value.checked || false;
+      result.checked = Boolean(value.checked);
       break;
 
     case "callout":
       result.text = plainText(value.rich_text);
-      result.icon =
-        value.icon?.emoji ||
-        value.icon?.external?.url ||
-        "";
+
+      if (value.icon?.type === "emoji") {
+        result.icon = value.icon.emoji;
+      }
       break;
 
     case "code":
@@ -87,10 +98,11 @@ async function transformBlock(block) {
       break;
 
     case "image":
-      result.url =
-        value.type === "external"
-          ? value.external?.url
-          : value.file?.url;
+      if (value.type === "external") {
+        result.url = value.external?.url || "";
+      } else if (value.type === "file") {
+        result.url = value.file?.url || "";
+      }
 
       result.caption = plainText(value.caption);
       break;
@@ -107,18 +119,18 @@ async function transformBlock(block) {
       const rows = await getAllChildren(block.id);
 
       result.rows = rows
-        .filter(row => row.type === "table_row")
-        .map(row => ({
-          cells: (row.table_row?.cells || []).map(cell =>
-            plainText(cell)
+        .filter((row) => row.type === "table_row")
+        .map((row) => ({
+          cells: (row.table_row?.cells || []).map(
+            (cell) => plainText(cell)
           )
         }));
 
-      result.has_column_header =
-        value.has_column_header || false;
+      result.hasColumnHeader =
+        Boolean(value.has_column_header);
 
-      result.has_row_header =
-        value.has_row_header || false;
+      result.hasRowHeader =
+        Boolean(value.has_row_header);
 
       return result;
     }
@@ -131,7 +143,9 @@ async function transformBlock(block) {
     const children = await getAllChildren(block.id);
 
     result.children = await Promise.all(
-      children.map(transformBlock)
+      children.map((child) =>
+        transformBlock(child)
+      )
     );
   }
 
@@ -143,7 +157,7 @@ function getPageTitle(page) {
 
   for (const property of Object.values(properties)) {
     if (property.type === "title") {
-      return plainText(property.title);
+      return plainText(property.title || []);
     }
   }
 
@@ -153,53 +167,73 @@ function getPageTitle(page) {
 export default {
   async fetch(request) {
     try {
+
       if (!process.env.NOTION_TOKEN) {
         return Response.json(
           {
-            error: "NOTION_TOKEN이 설정되어 있지 않습니다."
+            error:
+              "NOTION_TOKEN이 Vercel에 설정되어 있지 않습니다."
           },
-          { status: 500 }
+          {
+            status: 500
+          }
         );
       }
 
       const url = new URL(request.url);
-      const pageParam = url.searchParams.get("page");
+      const pageParam =
+        url.searchParams.get("page");
 
       if (!pageParam) {
         return Response.json(
           {
             error: "page 값이 없습니다."
           },
-          { status: 400 }
+          {
+            status: 400
+          }
         );
       }
 
-      const pageId = pageParam.replace(/-/g, "");
+      const pageId = pageParam
+        .trim()
+        .replace(/-/g, "");
 
       const page = await notionFetch(
         `/pages/${pageId}`
       );
 
-      const children = await getAllChildren(pageId);
+      const children =
+        await getAllChildren(pageId);
 
-      const blocks = await Promise.all(
-        children.map(transformBlock)
-      );
+      const blocks =
+        await Promise.all(
+          children.map((block) =>
+            transformBlock(block)
+          )
+        );
 
       return Response.json({
         title: getPageTitle(page),
-        blocks
+        blocks: blocks
       });
 
     } catch (error) {
+
       console.error(error);
 
       return Response.json(
         {
-          error: "노션 페이지를 불러오지 못했습니다.",
-          details: error.message
+          error:
+            "노션 페이지를 불러오지 못했습니다.",
+          details:
+            error instanceof Error
+              ? error.message
+              : String(error)
         },
-        { status: 500 }
+        {
+          status: 500
+        }
       );
     }
   }
