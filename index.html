@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>와이앤지성장 | 정부지원사업</title>
 
   <style>
@@ -15,49 +14,87 @@
       margin: 0;
       background: #ffffff;
       color: #222;
-      font-family:
-        Arial,
-        "Noto Sans KR",
-        sans-serif;
+      font-family: Arial, "Noto Sans KR", sans-serif;
     }
 
     #page {
       width: 100%;
       max-width: 760px;
       margin: 0 auto;
-      padding: 35px 20px 80px;
+      padding: 28px 20px 70px;
+    }
+
+    .company-intro {
+      margin-bottom: 26px;
+      line-height: 1.85;
+    }
+
+    .company-intro p {
+      margin: 7px 0;
+    }
+
+    .homepage-preview {
+      width: 100%;
+      height: 460px;
+      margin: 24px 0 18px;
+      overflow: hidden;
+      border: 1px solid #e3e3e3;
+      border-radius: 14px;
+      background: #f5f5f5;
+    }
+
+    .homepage-preview iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .homepage-guide {
+      margin-bottom: 45px;
+      line-height: 1.8;
+    }
+
+    .homepage-button {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 12px 18px;
+      background: #1b3c35;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 700;
     }
 
     #loading {
       text-align: center;
-      padding: 80px 20px;
+      padding: 60px 20px;
       color: #777;
       line-height: 1.8;
     }
 
     .page-title {
-      margin: 0 0 40px;
+      margin: 0 0 36px;
       color: #1b3c35;
       font-size: 30px;
       line-height: 1.45;
     }
 
     h1 {
-      margin: 38px 0 16px;
+      margin: 36px 0 16px;
       color: #1b3c35;
       font-size: 27px;
       line-height: 1.45;
     }
 
     h2 {
-      margin: 34px 0 14px;
+      margin: 32px 0 14px;
       color: #1b3c35;
       font-size: 22px;
       line-height: 1.5;
     }
 
     h3 {
-      margin: 28px 0 12px;
+      margin: 26px 0 12px;
       color: #1b3c35;
       font-size: 18px;
       line-height: 1.5;
@@ -75,7 +112,6 @@
 
     .list-item {
       margin: 7px 0;
-      padding-left: 4px;
       line-height: 1.75;
     }
 
@@ -85,10 +121,6 @@
       align-items: flex-start;
       margin: 8px 0;
       line-height: 1.7;
-    }
-
-    .todo input {
-      margin-top: 6px;
     }
 
     .quote {
@@ -107,14 +139,10 @@
       line-height: 1.8;
     }
 
-    .callout-icon {
-      margin-right: 8px;
-    }
-
     .divider {
       height: 1px;
       background: #e7e7e7;
-      margin: 32px 0;
+      margin: 30px 0;
     }
 
     .code {
@@ -124,7 +152,6 @@
       border-radius: 10px;
       font-family: monospace;
       white-space: pre-wrap;
-      line-height: 1.6;
     }
 
     .notion-image {
@@ -198,15 +225,15 @@
 
     #instagram-end {
       display: none;
-      margin-top: 100px;
-      padding: 45px 20px;
+      margin-top: 70px;
+      padding: 34px 18px;
       background: #f5f7f5;
       border-radius: 16px;
       text-align: center;
     }
 
     #instagram-end h2 {
-      margin: 0 0 10px;
+      margin: 0 0 8px;
       color: #1b3c35;
     }
 
@@ -217,7 +244,11 @@
 
     @media (max-width: 600px) {
       #page {
-        padding: 25px 17px 70px;
+        padding: 22px 16px 60px;
+      }
+
+      .homepage-preview {
+        height: 420px;
       }
 
       .page-title {
@@ -239,6 +270,38 @@
 
   <main id="page">
 
+    <section class="company-intro">
+      <p>👋 안녕하세요, 와이앤지성장입니다.</p>
+
+      <p>
+        정책자금 · 무상지원금 · 기업인증 · 지원사업 등<br>
+        1,350개 기업과 함께한 경험을 바탕으로<br>
+        사업자분들이 놓치지 말아야 할 정부지원사업을<br>
+        빠르게 확인하실 수 있도록 안내해드립니다.
+      </p>
+    </section>
+
+    <div class="homepage-preview">
+      <iframe
+        src="https://yng-homepage.vercel.app/grant"
+        title="와이앤지성장 홈페이지"
+        loading="eager">
+      </iframe>
+    </div>
+
+    <div class="homepage-guide">
+      <p>↑ 와이앤지성장이 어떤 회사인지 궁금하시다면</p>
+      <p>홈페이지에서 먼저 확인해보세요!</p>
+
+      <a
+        class="homepage-button"
+        href="https://yng-homepage.vercel.app/grant"
+        target="_blank"
+        rel="noopener noreferrer">
+        홈페이지 바로가기 →
+      </a>
+    </div>
+
     <div id="loading">
       내용을 불러오는 중입니다...
     </div>
@@ -247,37 +310,21 @@
 
     <div id="instagram-end">
       <h2>마지막까지 읽어주셔서 감사합니다.</h2>
-      <p>
-        와이앤지성장 인스타그램으로 이동합니다 →
-      </p>
+      <p>와이앤지성장 인스타그램으로 이동합니다 →</p>
     </div>
 
   </main>
 
-
   <script>
+    const params = new URLSearchParams(window.location.search);
+    const pageValue = params.get("page");
 
-    const params =
-      new URLSearchParams(window.location.search);
-
-    const pageValue =
-      params.get("page");
-
-    const loading =
-      document.getElementById("loading");
-
-    const content =
-      document.getElementById("content");
-
-    const instagramEnd =
-      document.getElementById("instagram-end");
-
+    const loading = document.getElementById("loading");
+    const content = document.getElementById("content");
+    const instagramEnd = document.getElementById("instagram-end");
 
     function extractPageId(value) {
-
-      if (!value) {
-        return "";
-      }
+      if (!value) return "";
 
       let decoded = value;
 
@@ -285,524 +332,302 @@
         decoded = decodeURIComponent(value);
       } catch (e) {}
 
-      const normalized =
-        decoded.replace(/-/g, "");
+      const normalized = decoded.replace(/-/g, "");
+      const matches = normalized.match(/[a-f0-9]{32}/gi);
 
-      const matches =
-        normalized.match(/[a-f0-9]{32}/gi);
-
-      if (!matches || !matches.length) {
-        return "";
-      }
+      if (!matches || !matches.length) return "";
 
       return matches[matches.length - 1];
     }
 
-
-    function createTextElement(
-      tag,
-      text,
-      className
-    ) {
-
-      const el =
-        document.createElement(tag);
+    function createTextElement(tag, text, className) {
+      const el = document.createElement(tag);
 
       if (className) {
         el.className = className;
       }
 
-      el.textContent =
-        text || "";
-
+      el.textContent = text || "";
       return el;
     }
 
-
     function renderTable(block) {
+      const wrap = document.createElement("div");
+      wrap.className = "table-wrap";
 
-      const wrap =
-        document.createElement("div");
-
-      wrap.className =
-        "table-wrap";
-
-      const table =
-        document.createElement("table");
-
-      const rows =
-        block.rows || [];
+      const table = document.createElement("table");
+      const rows = block.rows || [];
 
       rows.forEach((row, rowIndex) => {
+        const tr = document.createElement("tr");
 
-        const tr =
-          document.createElement("tr");
+        (row.cells || []).forEach((cellText) => {
+          const useHeader =
+            block.hasColumnHeader && rowIndex === 0;
 
-        (row.cells || []).forEach(
-          (cellText) => {
+          const cell = document.createElement(
+            useHeader ? "th" : "td"
+          );
 
-            const useHeader =
-              block.hasColumnHeader &&
-              rowIndex === 0;
-
-            const cell =
-              document.createElement(
-                useHeader ? "th" : "td"
-              );
-
-            cell.textContent =
-              cellText || "";
-
-            tr.appendChild(cell);
-          }
-        );
+          cell.textContent = cellText || "";
+          tr.appendChild(cell);
+        });
 
         table.appendChild(tr);
       });
 
       wrap.appendChild(table);
-
       return wrap;
     }
 
-
     function renderBlock(block) {
-
-      const wrapper =
-        document.createElement("div");
-
+      const wrapper = document.createElement("div");
       wrapper.className = "block";
 
       switch (block.type) {
-
         case "paragraph":
-
           wrapper.appendChild(
-            createTextElement(
-              "p",
-              block.text
-            )
+            createTextElement("p", block.text)
           );
-
           break;
-
 
         case "heading_1":
-
           wrapper.appendChild(
-            createTextElement(
-              "h1",
-              block.text
-            )
+            createTextElement("h1", block.text)
           );
-
           break;
-
 
         case "heading_2":
-
           wrapper.appendChild(
-            createTextElement(
-              "h2",
-              block.text
-            )
+            createTextElement("h2", block.text)
           );
-
           break;
-
 
         case "heading_3":
+          wrapper.appendChild(
+            createTextElement("h3", block.text)
+          );
+          break;
 
+        case "bulleted_list_item":
           wrapper.appendChild(
             createTextElement(
-              "h3",
-              block.text
+              "div",
+              "• " + (block.text || ""),
+              "list-item"
             )
           );
-
           break;
 
-
-        case "bulleted_list_item": {
-
-          const item =
+        case "numbered_list_item":
+          wrapper.appendChild(
             createTextElement(
               "div",
               "• " + (block.text || ""),
               "list-item"
-            );
-
-          wrapper.appendChild(item);
-
+            )
+          );
           break;
-        }
-
-
-        case "numbered_list_item": {
-
-          const item =
-            createTextElement(
-              "div",
-              "• " + (block.text || ""),
-              "list-item"
-            );
-
-          wrapper.appendChild(item);
-
-          break;
-        }
-
 
         case "to_do": {
-
-          const label =
-            document.createElement("label");
-
+          const label = document.createElement("label");
           label.className = "todo";
 
-          const checkbox =
-            document.createElement("input");
-
+          const checkbox = document.createElement("input");
           checkbox.type = "checkbox";
-          checkbox.checked =
-            Boolean(block.checked);
-
+          checkbox.checked = Boolean(block.checked);
           checkbox.disabled = true;
 
-          const text =
-            document.createElement("span");
-
-          text.textContent =
-            block.text || "";
+          const text = document.createElement("span");
+          text.textContent = block.text || "";
 
           label.appendChild(checkbox);
           label.appendChild(text);
-
           wrapper.appendChild(label);
-
           break;
         }
 
-
-        case "quote": {
-
-          const quote =
+        case "quote":
+          wrapper.appendChild(
             createTextElement(
               "div",
               block.text,
               "quote"
-            );
-
-          wrapper.appendChild(quote);
-
+            )
+          );
           break;
-        }
-
 
         case "callout": {
-
-          const callout =
-            document.createElement("div");
-
-          callout.className =
-            "callout";
+          const callout = document.createElement("div");
+          callout.className = "callout";
 
           if (block.icon) {
-
-            const icon =
-              document.createElement("span");
-
-            icon.className =
-              "callout-icon";
-
-            icon.textContent =
-              block.icon;
-
+            const icon = document.createElement("span");
+            icon.textContent = block.icon + " ";
             callout.appendChild(icon);
           }
 
-          const text =
-            document.createElement("span");
-
-          text.textContent =
-            block.text || "";
-
+          const text = document.createElement("span");
+          text.textContent = block.text || "";
           callout.appendChild(text);
 
           wrapper.appendChild(callout);
-
           break;
         }
-
 
         case "divider": {
-
-          const divider =
-            document.createElement("div");
-
-          divider.className =
-            "divider";
-
+          const divider = document.createElement("div");
+          divider.className = "divider";
           wrapper.appendChild(divider);
-
           break;
         }
-
 
         case "code": {
-
-          const code =
-            document.createElement("pre");
-
-          code.className =
-            "code";
-
-          code.textContent =
-            block.text || "";
-
+          const code = document.createElement("pre");
+          code.className = "code";
+          code.textContent = block.text || "";
           wrapper.appendChild(code);
-
           break;
         }
 
-
         case "image": {
-
           if (block.url) {
-
-            const image =
-              document.createElement("img");
-
-            image.className =
-              "notion-image";
-
-            image.src =
-              block.url;
-
-            image.alt =
-              block.caption || "";
-
+            const image = document.createElement("img");
+            image.className = "notion-image";
+            image.src = block.url;
+            image.alt = block.caption || "";
             wrapper.appendChild(image);
 
             if (block.caption) {
-
-              const caption =
+              wrapper.appendChild(
                 createTextElement(
                   "div",
                   block.caption,
                   "image-caption"
-                );
-
-              wrapper.appendChild(
-                caption
+                )
               );
             }
           }
-
           break;
         }
-
 
         case "bookmark":
         case "link_preview": {
-
           if (block.url) {
-
-            const link =
-              document.createElement("a");
-
-            link.className =
-              "link-card";
-
-            link.href =
-              block.url;
-
-            link.target =
-              "_blank";
-
-            link.rel =
-              "noopener noreferrer";
-
-            link.textContent =
-              block.url;
-
+            const link = document.createElement("a");
+            link.className = "link-card";
+            link.href = block.url;
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+            link.textContent = block.url;
             wrapper.appendChild(link);
           }
-
           break;
         }
 
-
         case "table":
-
-          wrapper.appendChild(
-            renderTable(block)
-          );
-
+          wrapper.appendChild(renderTable(block));
           break;
 
-
         case "toggle": {
+          const details = document.createElement("details");
+          const summary = document.createElement("summary");
 
-          const details =
-            document.createElement(
-              "details"
-            );
-
-          const summary =
-            document.createElement(
-              "summary"
-            );
-
-          summary.textContent =
-            block.text || "";
-
+          summary.textContent = block.text || "";
           details.appendChild(summary);
 
           if (block.children?.length) {
-
             const childContainer =
               document.createElement("div");
 
-            childContainer.className =
-              "children";
+            childContainer.className = "children";
 
             renderBlocks(
               block.children,
               childContainer
             );
 
-            details.appendChild(
-              childContainer
-            );
+            details.appendChild(childContainer);
           }
 
           wrapper.appendChild(details);
-
           return wrapper;
         }
 
-
         default:
-
           if (block.text) {
-
             wrapper.appendChild(
-              createTextElement(
-                "p",
-                block.text
-              )
+              createTextElement("p", block.text)
             );
           }
       }
 
-
-      if (
-        block.children &&
-        block.children.length
-      ) {
-
+      if (block.children && block.children.length) {
         const childContainer =
           document.createElement("div");
 
-        childContainer.className =
-          "children";
+        childContainer.className = "children";
 
         renderBlocks(
           block.children,
           childContainer
         );
 
-        wrapper.appendChild(
-          childContainer
-        );
+        wrapper.appendChild(childContainer);
       }
-
 
       return wrapper;
     }
 
-
-    function renderBlocks(
-      blocks,
-      parent
-    ) {
-
-      (blocks || []).forEach(
-        (block) => {
-
-          parent.appendChild(
-            renderBlock(block)
-          );
-
-        }
-      );
+    function renderBlocks(blocks, parent) {
+      (blocks || []).forEach((block) => {
+        parent.appendChild(renderBlock(block));
+      });
     }
-
 
     function startInstagramRedirect() {
-
       let started = false;
 
-      const observer =
-        new IntersectionObserver(
-          (entries) => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (
+            entries[0].isIntersecting &&
+            !started
+          ) {
+            started = true;
 
-            if (
-              entries[0].isIntersecting &&
-              !started
-            ) {
-
-              started = true;
-
-              setTimeout(() => {
-
-                window.location.href =
-                  "https://www.instagram.com/yng_biz/";
-
-              }, 1500);
-            }
-          },
-          {
-            threshold: 0.8
+            setTimeout(() => {
+              window.location.href =
+                "https://www.instagram.com/yng_biz/";
+            }, 500);
           }
-        );
-
-      observer.observe(
-        instagramEnd
+        },
+        {
+          threshold: 0.3
+        }
       );
+
+      observer.observe(instagramEnd);
     }
 
-
     async function loadPage() {
-
-      const pageId =
-        extractPageId(pageValue);
+      const pageId = extractPageId(pageValue);
 
       if (!pageId) {
-
         loading.innerHTML =
           "불러올 노션 페이지가 지정되지 않았습니다.";
-
         return;
       }
 
-
       try {
+        const response = await fetch(
+          "/api/notion?page=" +
+          encodeURIComponent(pageId)
+        );
 
-        const response =
-          await fetch(
-            "/api/notion?page=" +
-            encodeURIComponent(pageId)
-          );
-
-
-        const data =
-          await response.json();
-
+        const data = await response.json();
 
         if (!response.ok) {
-
           throw new Error(
             data.details ||
             data.error ||
@@ -810,53 +635,36 @@
           );
         }
 
-
-        loading.style.display =
-          "none";
-
+        loading.style.display = "none";
 
         if (data.title) {
-
-          const title =
-            createTextElement(
-              "h1",
-              data.title,
-              "page-title"
-            );
-
-          content.appendChild(
-            title
+          const title = createTextElement(
+            "h1",
+            data.title,
+            "page-title"
           );
-        }
 
+          content.appendChild(title);
+        }
 
         renderBlocks(
           data.blocks || [],
           content
         );
 
-
-        instagramEnd.style.display =
-          "block";
-
-
+        instagramEnd.style.display = "block";
         startInstagramRedirect();
 
-
       } catch (error) {
-
         console.error(error);
 
         loading.innerHTML =
           "페이지를 불러오지 못했습니다.<br>" +
           "노션 연결 또는 페이지 권한을 확인해주세요.";
-
       }
     }
 
-
     loadPage();
-
   </script>
 
 </body>
