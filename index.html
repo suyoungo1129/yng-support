@@ -3,73 +3,187 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>와이앤지성장 | 정부지원사업</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #ffffff;
+      color: #222;
+      font-family: Arial, "Noto Sans KR", sans-serif;
+    }
+
+    #page {
+      width: 100%;
       max-width: 760px;
       margin: 0 auto;
-      padding: 30px 20px;
-      line-height: 1.8;
-      color: #222;
+      padding: 30px 20px 80px;
+    }
+
+    #loading {
+      text-align: center;
+      padding: 80px 20px;
+      color: #777;
+    }
+
+    h1 {
+      color: #1b3c35;
+      line-height: 1.4;
+    }
+
+    h2 {
+      color: #1b3c35;
+      margin-top: 35px;
+    }
+
+    p {
+      line-height: 1.9;
+      white-space: pre-wrap;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin: 20px 0;
+    }
+
+    .block {
+      margin: 14px 0;
     }
 
     #instagram-end {
-      margin-top: 80px;
-      padding: 40px 20px;
+      margin-top: 100px;
+      padding: 45px 20px;
       text-align: center;
       background: #f5f7f5;
       border-radius: 16px;
     }
 
     #instagram-end h2 {
-      color: #1b3c35;
+      margin-top: 0;
     }
   </style>
 </head>
 
 <body>
 
-  <h1>📅 놓치면 안 되는 정부지원사업</h1>
+  <main id="page">
 
-  <p>
-    와이앤지성장은 사업자분들이 놓치지 말아야 할
-    정부지원사업을 빠르게 확인하실 수 있도록 안내해드립니다.
-  </p>
+    <div id="loading">
+      내용을 불러오는 중입니다...
+    </div>
 
-  <br><br><br>
+    <div id="content"></div>
 
-  <p>
-    ※ 지금은 테스트 페이지입니다.<br>
-    나중에 이 부분에 노션에 작성하신 내용을 넣으면 됩니다.
-  </p>
+    <div id="instagram-end" style="display:none;">
+      <h2>끝까지 읽어주셔서 감사합니다.</h2>
+      <p>잠시 후 와이앤지성장 인스타그램으로 이동합니다.</p>
+    </div>
 
-  <br><br><br><br><br><br><br><br><br><br>
-
-  <div id="instagram-end">
-    <h2>마지막까지 읽어주셔서 감사합니다.</h2>
-    <p>와이앤지성장 인스타그램으로 이동합니다 →</p>
-  </div>
+  </main>
 
   <script>
-    const target = document.getElementById("instagram-end");
-    let redirectStarted = false;
+    const params = new URLSearchParams(window.location.search);
+    const pageId = params.get("page");
 
-    const observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting && !redirectStarted) {
-        redirectStarted = true;
+    const loading = document.getElementById("loading");
+    const content = document.getElementById("content");
+    const instagramEnd = document.getElementById("instagram-end");
 
-        setTimeout(() => {
-          window.location.href =
-            "https://www.instagram.com/yng_biz/";
-        }, 1500);
-      }
-    }, {
-      threshold: 0.8
-    });
+    if (!pageId) {
+      loading.innerHTML =
+        "불러올 페이지가 지정되지 않았습니다.";
+    } else {
 
-    observer.observe(target);
+      fetch("/api/notion?page=" + encodeURIComponent(pageId))
+
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("Notion 데이터를 불러오지 못했습니다.");
+          }
+
+          return response.json();
+        })
+
+        .then(data => {
+
+          loading.style.display = "none";
+
+          if (data.title) {
+            const title = document.createElement("h1");
+            title.textContent = data.title;
+            content.appendChild(title);
+          }
+
+          if (data.blocks) {
+
+            data.blocks.forEach(block => {
+
+              const div = document.createElement("div");
+              div.className = "block";
+
+              if (block.type === "heading_1") {
+                const el = document.createElement("h1");
+                el.textContent = block.text || "";
+                div.appendChild(el);
+
+              } else if (block.type === "heading_2") {
+                const el = document.createElement("h2");
+                el.textContent = block.text || "";
+                div.appendChild(el);
+
+              } else if (block.type === "paragraph") {
+                const el = document.createElement("p");
+                el.textContent = block.text || "";
+                div.appendChild(el);
+
+              } else if (block.type === "image" && block.url) {
+                const img = document.createElement("img");
+                img.src = block.url;
+                div.appendChild(img);
+              }
+
+              content.appendChild(div);
+            });
+          }
+
+          instagramEnd.style.display = "block";
+
+          const observer = new IntersectionObserver(entries => {
+
+            if (entries[0].isIntersecting) {
+
+              setTimeout(() => {
+
+                window.location.href =
+                  "https://www.instagram.com/yng_biz/";
+
+              }, 1500);
+            }
+
+          }, {
+            threshold: 0.8
+          });
+
+          observer.observe(instagramEnd);
+
+        })
+
+        .catch(error => {
+
+          console.error(error);
+
+          loading.innerHTML =
+            "페이지를 불러오지 못했습니다.<br>노션 페이지 연결 상태를 확인해주세요.";
+
+        });
+    }
   </script>
 
 </body>
