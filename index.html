@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>와이앤지성장 | 정부지원사업</title>
 
   <style>
@@ -12,8 +13,9 @@
 
     body {
       margin: 0;
+      padding: 0;
       background: #ffffff;
-      color: #222;
+      color: #222222;
       font-family: Arial, "Noto Sans KR", sans-serif;
     }
 
@@ -21,22 +23,41 @@
       width: 100%;
       max-width: 760px;
       margin: 0 auto;
-      padding: 28px 20px 70px;
+      padding: 24px 20px 60px;
     }
 
+
+    /* =========================
+       회사 소개
+    ========================= */
+
     .company-intro {
-      margin-bottom: 26px;
-      line-height: 1.85;
+      margin: 0 0 20px 0;
+      padding: 0;
+      font-size: 16px;
+      line-height: 1.55;
     }
 
     .company-intro p {
-      margin: 7px 0;
+      margin: 0;
+      padding: 0;
+      line-height: 1.55;
     }
+
+    .company-intro .intro-space {
+      height: 10px;
+    }
+
+
+    /* =========================
+       홈페이지 미리보기
+    ========================= */
 
     .homepage-preview {
       width: 100%;
       height: 460px;
-      margin: 24px 0 18px;
+      margin: 24px 0 14px;
+      padding: 0;
       overflow: hidden;
       border: 1px solid #e3e3e3;
       border-radius: 14px;
@@ -44,160 +65,285 @@
     }
 
     .homepage-preview iframe {
+      display: block;
       width: 100%;
       height: 100%;
+      margin: 0;
+      padding: 0;
       border: 0;
     }
 
+
+    /* =========================
+       홈페이지 안내
+    ========================= */
+
     .homepage-guide {
-      margin-bottom: 45px;
-      line-height: 1.8;
+      margin: 0 0 40px 0;
+      padding: 0;
+      line-height: 1.55;
+    }
+
+    .homepage-guide p {
+      margin: 0;
+      padding: 0;
+      line-height: 1.55;
     }
 
     .homepage-button {
       display: inline-block;
-      margin-top: 8px;
+      margin-top: 10px;
       padding: 12px 18px;
+
       background: #1b3c35;
       color: #ffffff;
+
       text-decoration: none;
-      border-radius: 8px;
       font-weight: 700;
+
+      border-radius: 8px;
     }
+
+
+    /* =========================
+       로딩
+    ========================= */
 
     #loading {
+      margin: 0;
+      padding: 40px 0;
       text-align: center;
-      padding: 60px 20px;
-      color: #777;
-      line-height: 1.8;
+      color: #777777;
+      line-height: 1.5;
     }
+
+
+    /* =========================
+       노션 본문
+    ========================= */
+
+    #content {
+      margin: 0;
+      padding: 0;
+    }
+
+    #content .block {
+      margin: 0;
+      padding: 0;
+    }
+
+    #content p {
+      margin: 0;
+      padding: 0;
+
+      font-size: 16px;
+      line-height: 1.55;
+
+      white-space: pre-wrap;
+      word-break: keep-all;
+    }
+
+
+    /* 빈 문단만 간격 생성 */
+
+    #content p:empty {
+      min-height: 12px;
+    }
+
+
+    /* 제목 */
 
     .page-title {
-      margin: 0 0 36px;
+      margin: 0 0 20px 0;
+      padding: 0;
+
       color: #1b3c35;
-      font-size: 30px;
+
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    #content h1 {
+      margin: 24px 0 8px;
+      padding: 0;
+
+      color: #1b3c35;
+
+      font-size: 26px;
+      line-height: 1.4;
+    }
+
+    #content h2 {
+      margin: 22px 0 7px;
+      padding: 0;
+
+      color: #1b3c35;
+
+      font-size: 21px;
       line-height: 1.45;
     }
 
-    h1 {
-      margin: 36px 0 16px;
-      color: #1b3c35;
-      font-size: 27px;
-      line-height: 1.45;
-    }
+    #content h3 {
+      margin: 18px 0 6px;
+      padding: 0;
 
-    h2 {
-      margin: 32px 0 14px;
       color: #1b3c35;
-      font-size: 22px;
-      line-height: 1.5;
-    }
 
-    h3 {
-      margin: 26px 0 12px;
-      color: #1b3c35;
       font-size: 18px;
-      line-height: 1.5;
+      line-height: 1.45;
     }
 
-    p {
-      margin: 10px 0;
-      line-height: 1.85;
-      white-space: pre-wrap;
-    }
 
-    .block {
-      margin: 10px 0;
-    }
+    /* 리스트 */
 
     .list-item {
-      margin: 7px 0;
-      line-height: 1.75;
+      margin: 0;
+      padding: 0;
+
+      font-size: 16px;
+      line-height: 1.55;
     }
+
+
+    /* 체크박스 */
 
     .todo {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       align-items: flex-start;
-      margin: 8px 0;
-      line-height: 1.7;
+
+      margin: 0;
+      padding: 0;
+
+      line-height: 1.55;
     }
+
+
+    /* 인용문 */
 
     .quote {
-      margin: 20px 0;
-      padding: 5px 0 5px 18px;
+      margin: 12px 0;
+      padding: 4px 0 4px 14px;
+
       border-left: 4px solid #a4c539;
-      color: #444;
-      line-height: 1.8;
+
+      color: #444444;
+      line-height: 1.55;
     }
 
+
+    /* 콜아웃 */
+
     .callout {
-      margin: 18px 0;
-      padding: 18px;
+      margin: 12px 0;
+      padding: 15px;
+
       background: #f5f7f5;
-      border-radius: 12px;
-      line-height: 1.8;
+
+      border-radius: 10px;
+
+      line-height: 1.55;
     }
+
+
+    /* 구분선 */
 
     .divider {
       height: 1px;
+
+      margin: 20px 0;
+
       background: #e7e7e7;
-      margin: 30px 0;
     }
+
+
+    /* 코드 */
 
     .code {
       overflow-x: auto;
-      padding: 18px;
+
+      margin: 12px 0;
+      padding: 15px;
+
       background: #f5f5f5;
+
       border-radius: 10px;
+
       font-family: monospace;
       white-space: pre-wrap;
     }
 
+
+    /* 이미지 */
+
     .notion-image {
       display: block;
+
       width: 100%;
       height: auto;
-      margin: 22px 0 8px;
-      border-radius: 12px;
+
+      margin: 16px 0 5px;
+
+      border-radius: 10px;
     }
 
     .image-caption {
-      margin-bottom: 20px;
-      color: #777;
+      margin: 0 0 12px;
+
+      color: #777777;
+
       font-size: 13px;
       text-align: center;
     }
 
+
+    /* 링크 */
+
     .link-card {
       display: block;
-      margin: 14px 0;
-      padding: 15px 18px;
-      border: 1px solid #ddd;
-      border-radius: 10px;
+
+      margin: 10px 0;
+      padding: 13px 15px;
+
+      border: 1px solid #dddddd;
+      border-radius: 9px;
+
       color: #1b3c35;
+
       text-decoration: none;
+
       word-break: break-all;
     }
 
+
+    /* 표 */
+
     .table-wrap {
       width: 100%;
-      margin: 20px 0;
+
+      margin: 14px 0;
+
       overflow-x: auto;
     }
 
     table {
       width: 100%;
       min-width: 520px;
+
       border-collapse: collapse;
+
       font-size: 14px;
     }
 
     th,
     td {
-      padding: 12px 13px;
+      padding: 10px 12px;
+
       border: 1px solid #dedede;
-      line-height: 1.6;
+
+      line-height: 1.5;
+
       text-align: left;
       vertical-align: top;
     }
@@ -205,46 +351,77 @@
     th {
       background: #f5f7f5;
       color: #1b3c35;
+
       font-weight: 700;
     }
 
+
+    /* 토글 */
+
     details {
-      margin: 12px 0;
+      margin: 8px 0;
     }
 
     summary {
       cursor: pointer;
+
       font-weight: 600;
-      line-height: 1.7;
+      line-height: 1.55;
     }
 
     .children {
-      margin-left: 20px;
-      padding-left: 10px;
+      margin: 0 0 0 18px;
+      padding: 0 0 0 8px;
     }
+
+
+    /* =========================
+       인스타 이동 영역
+    ========================= */
 
     #instagram-end {
       display: none;
-      margin-top: 70px;
-      padding: 34px 18px;
+
+      margin-top: 45px;
+      padding: 28px 18px;
+
       background: #f5f7f5;
-      border-radius: 16px;
+
+      border-radius: 14px;
+
       text-align: center;
     }
 
     #instagram-end h2 {
-      margin: 0 0 8px;
+      margin: 0 0 5px;
+
       color: #1b3c35;
+
+      font-size: 20px;
     }
 
     #instagram-end p {
       margin: 0;
-      color: #555;
+      padding: 0;
+
+      color: #555555;
+
+      line-height: 1.5;
     }
 
+
+    /* =========================
+       모바일
+    ========================= */
+
     @media (max-width: 600px) {
+
       #page {
-        padding: 22px 16px 60px;
+        padding: 20px 16px 50px;
+      }
+
+      .company-intro {
+        font-size: 15px;
       }
 
       .homepage-preview {
@@ -252,60 +429,69 @@
       }
 
       .page-title {
-        font-size: 26px;
-      }
-
-      h1 {
         font-size: 24px;
       }
 
-      h2 {
+      #content h1 {
+        font-size: 23px;
+      }
+
+      #content h2 {
         font-size: 20px;
       }
+
+      #content h3 {
+        font-size: 17px;
+      }
+
+      #content p,
+      .list-item {
+        font-size: 15px;
+      }
     }
-    /* 노션 원문 줄 간격 */
-#content p {
-  margin: 0;
-  line-height: 1.7;
-  white-space: pre-wrap;
-}
 
-#content .block {
-  margin: 0;
-}
-
-/* 회사 소개 문구도 줄 간격 좁게 */
-.company-intro p {
-  margin: 0;
-  line-height: 1.7;
-}
   </style>
 </head>
+
 
 <body>
 
   <main id="page">
 
+
+    <!-- 회사 소개 -->
+
     <section class="company-intro">
+
       <p>👋 안녕하세요, 와이앤지성장입니다.</p>
 
-      <p>
-        정책자금 · 무상지원금 · 기업인증 · 지원사업 등<br>
-        1,350개 기업과 함께한 경험을 바탕으로<br>
-        사업자분들이 놓치지 말아야 할 정부지원사업을<br>
-        빠르게 확인하실 수 있도록 안내해드립니다.
-      </p>
+      <div class="intro-space"></div>
+
+      <p>정책자금 · 무상지원금 · 기업인증 · 지원사업 등</p>
+      <p>1,350개 기업과 함께한 경험을 바탕으로</p>
+      <p>사업자분들이 놓치지 말아야 할 정부지원사업을</p>
+      <p>빠르게 확인하실 수 있도록 안내해드립니다.</p>
+
     </section>
 
+
+    <!-- 홈페이지 미리보기 -->
+
     <div class="homepage-preview">
+
       <iframe
         src="https://yng-homepage.vercel.app/grant"
         title="와이앤지성장 홈페이지"
         loading="eager">
       </iframe>
+
     </div>
 
+
+    <!-- 홈페이지 안내 -->
+
     <div class="homepage-guide">
+
       <p>↑ 와이앤지성장이 어떤 회사인지 궁금하시다면</p>
       <p>홈페이지에서 먼저 확인해보세요!</p>
 
@@ -314,9 +500,15 @@
         href="https://yng-homepage.vercel.app/grant"
         target="_blank"
         rel="noopener noreferrer">
+
         홈페이지 바로가기 →
+
       </a>
+
     </div>
+
+
+    <!-- 노션 내용 -->
 
     <div id="loading">
       내용을 불러오는 중입니다...
@@ -324,22 +516,45 @@
 
     <div id="content"></div>
 
+
+    <!-- 인스타 이동 -->
+
     <div id="instagram-end">
+
       <h2>마지막까지 읽어주셔서 감사합니다.</h2>
-      <p>와이앤지성장 인스타그램으로 이동합니다 →</p>
+
+      <p>
+        와이앤지성장 인스타그램으로 이동합니다 →
+      </p>
+
     </div>
 
   </main>
 
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const pageValue = params.get("page");
 
-    const loading = document.getElementById("loading");
-    const content = document.getElementById("content");
-    const instagramEnd = document.getElementById("instagram-end");
+  <script>
+
+    const params =
+      new URLSearchParams(window.location.search);
+
+    const pageValue =
+      params.get("page");
+
+
+    const loading =
+      document.getElementById("loading");
+
+    const content =
+      document.getElementById("content");
+
+    const instagramEnd =
+      document.getElementById("instagram-end");
+
+
+    /* 페이지 ID 추출 */
 
     function extractPageId(value) {
+
       if (!value) return "";
 
       let decoded = value;
@@ -348,84 +563,167 @@
         decoded = decodeURIComponent(value);
       } catch (e) {}
 
-      const normalized = decoded.replace(/-/g, "");
-      const matches = normalized.match(/[a-f0-9]{32}/gi);
+      const normalized =
+        decoded.replace(/-/g, "");
 
-      if (!matches || !matches.length) return "";
+      const matches =
+        normalized.match(/[a-f0-9]{32}/gi);
+
+      if (!matches || !matches.length) {
+        return "";
+      }
 
       return matches[matches.length - 1];
     }
 
-    function createTextElement(tag, text, className) {
-      const el = document.createElement(tag);
+
+    /* 텍스트 요소 */
+
+    function createTextElement(
+      tag,
+      text,
+      className
+    ) {
+
+      const el =
+        document.createElement(tag);
 
       if (className) {
         el.className = className;
       }
 
-      el.textContent = text || "";
+      el.textContent =
+        text || "";
+
       return el;
     }
 
+
+    /* 표 */
+
     function renderTable(block) {
-      const wrap = document.createElement("div");
-      wrap.className = "table-wrap";
 
-      const table = document.createElement("table");
-      const rows = block.rows || [];
+      const wrap =
+        document.createElement("div");
 
-      rows.forEach((row, rowIndex) => {
-        const tr = document.createElement("tr");
+      wrap.className =
+        "table-wrap";
 
-        (row.cells || []).forEach((cellText) => {
-          const useHeader =
-            block.hasColumnHeader && rowIndex === 0;
 
-          const cell = document.createElement(
-            useHeader ? "th" : "td"
+      const table =
+        document.createElement("table");
+
+      const rows =
+        block.rows || [];
+
+
+      rows.forEach(
+        (row, rowIndex) => {
+
+          const tr =
+            document.createElement("tr");
+
+
+          (row.cells || []).forEach(
+            (cellText) => {
+
+              const useHeader =
+                block.hasColumnHeader &&
+                rowIndex === 0;
+
+
+              const cell =
+                document.createElement(
+                  useHeader ? "th" : "td"
+                );
+
+
+              cell.textContent =
+                cellText || "";
+
+
+              tr.appendChild(cell);
+
+            }
           );
 
-          cell.textContent = cellText || "";
-          tr.appendChild(cell);
-        });
 
-        table.appendChild(tr);
-      });
+          table.appendChild(tr);
+
+        }
+      );
+
 
       wrap.appendChild(table);
+
       return wrap;
     }
 
+
+    /* 블록 표시 */
+
     function renderBlock(block) {
-      const wrapper = document.createElement("div");
-      wrapper.className = "block";
+
+      const wrapper =
+        document.createElement("div");
+
+      wrapper.className =
+        "block";
+
 
       switch (block.type) {
+
+
         case "paragraph":
+
           wrapper.appendChild(
-            createTextElement("p", block.text)
+            createTextElement(
+              "p",
+              block.text
+            )
           );
+
           break;
+
 
         case "heading_1":
+
           wrapper.appendChild(
-            createTextElement("h1", block.text)
+            createTextElement(
+              "h1",
+              block.text
+            )
           );
+
           break;
+
 
         case "heading_2":
+
           wrapper.appendChild(
-            createTextElement("h2", block.text)
+            createTextElement(
+              "h2",
+              block.text
+            )
           );
+
           break;
+
 
         case "heading_3":
+
           wrapper.appendChild(
-            createTextElement("h3", block.text)
+            createTextElement(
+              "h3",
+              block.text
+            )
           );
+
           break;
+
 
         case "bulleted_list_item":
+
           wrapper.appendChild(
             createTextElement(
               "div",
@@ -433,9 +731,12 @@
               "list-item"
             )
           );
+
           break;
+
 
         case "numbered_list_item":
+
           wrapper.appendChild(
             createTextElement(
               "div",
@@ -443,27 +744,51 @@
               "list-item"
             )
           );
+
           break;
 
+
         case "to_do": {
-          const label = document.createElement("label");
-          label.className = "todo";
 
-          const checkbox = document.createElement("input");
-          checkbox.type = "checkbox";
-          checkbox.checked = Boolean(block.checked);
-          checkbox.disabled = true;
+          const label =
+            document.createElement("label");
 
-          const text = document.createElement("span");
-          text.textContent = block.text || "";
+          label.className =
+            "todo";
+
+
+          const checkbox =
+            document.createElement("input");
+
+          checkbox.type =
+            "checkbox";
+
+          checkbox.checked =
+            Boolean(block.checked);
+
+          checkbox.disabled =
+            true;
+
+
+          const text =
+            document.createElement("span");
+
+          text.textContent =
+            block.text || "";
+
 
           label.appendChild(checkbox);
+
           label.appendChild(text);
+
           wrapper.appendChild(label);
+
           break;
         }
 
+
         case "quote":
+
           wrapper.appendChild(
             createTextElement(
               "div",
@@ -471,50 +796,100 @@
               "quote"
             )
           );
+
           break;
 
+
         case "callout": {
-          const callout = document.createElement("div");
-          callout.className = "callout";
+
+          const callout =
+            document.createElement("div");
+
+          callout.className =
+            "callout";
+
 
           if (block.icon) {
-            const icon = document.createElement("span");
-            icon.textContent = block.icon + " ";
+
+            const icon =
+              document.createElement("span");
+
+            icon.textContent =
+              block.icon + " ";
+
             callout.appendChild(icon);
+
           }
 
-          const text = document.createElement("span");
-          text.textContent = block.text || "";
+
+          const text =
+            document.createElement("span");
+
+          text.textContent =
+            block.text || "";
+
+
           callout.appendChild(text);
 
           wrapper.appendChild(callout);
+
           break;
         }
+
 
         case "divider": {
-          const divider = document.createElement("div");
-          divider.className = "divider";
+
+          const divider =
+            document.createElement("div");
+
+          divider.className =
+            "divider";
+
           wrapper.appendChild(divider);
+
           break;
         }
+
 
         case "code": {
-          const code = document.createElement("pre");
-          code.className = "code";
-          code.textContent = block.text || "";
+
+          const code =
+            document.createElement("pre");
+
+          code.className =
+            "code";
+
+          code.textContent =
+            block.text || "";
+
           wrapper.appendChild(code);
+
           break;
         }
 
+
         case "image": {
+
           if (block.url) {
-            const image = document.createElement("img");
-            image.className = "notion-image";
-            image.src = block.url;
-            image.alt = block.caption || "";
+
+            const image =
+              document.createElement("img");
+
+            image.className =
+              "notion-image";
+
+            image.src =
+              block.url;
+
+            image.alt =
+              block.caption || "";
+
+
             wrapper.appendChild(image);
 
+
             if (block.caption) {
+
               wrapper.appendChild(
                 createTextElement(
                   "div",
@@ -522,165 +897,305 @@
                   "image-caption"
                 )
               );
+
             }
+
           }
+
           break;
         }
+
 
         case "bookmark":
         case "link_preview": {
+
           if (block.url) {
-            const link = document.createElement("a");
-            link.className = "link-card";
-            link.href = block.url;
-            link.target = "_blank";
-            link.rel = "noopener noreferrer";
-            link.textContent = block.url;
+
+            const link =
+              document.createElement("a");
+
+            link.className =
+              "link-card";
+
+            link.href =
+              block.url;
+
+            link.target =
+              "_blank";
+
+            link.rel =
+              "noopener noreferrer";
+
+            link.textContent =
+              block.url;
+
+
             wrapper.appendChild(link);
+
           }
+
           break;
         }
 
+
         case "table":
-          wrapper.appendChild(renderTable(block));
+
+          wrapper.appendChild(
+            renderTable(block)
+          );
+
           break;
 
-        case "toggle": {
-          const details = document.createElement("details");
-          const summary = document.createElement("summary");
 
-          summary.textContent = block.text || "";
+        case "toggle": {
+
+          const details =
+            document.createElement("details");
+
+          const summary =
+            document.createElement("summary");
+
+
+          summary.textContent =
+            block.text || "";
+
+
           details.appendChild(summary);
 
-          if (block.children?.length) {
+
+          if (
+            block.children &&
+            block.children.length
+          ) {
+
             const childContainer =
               document.createElement("div");
 
-            childContainer.className = "children";
+            childContainer.className =
+              "children";
+
 
             renderBlocks(
               block.children,
               childContainer
             );
 
-            details.appendChild(childContainer);
+
+            details.appendChild(
+              childContainer
+            );
+
           }
 
+
           wrapper.appendChild(details);
+
           return wrapper;
         }
 
+
         default:
+
           if (block.text) {
+
             wrapper.appendChild(
-              createTextElement("p", block.text)
+              createTextElement(
+                "p",
+                block.text
+              )
             );
+
           }
+
       }
 
-      if (block.children && block.children.length) {
+
+      if (
+        block.children &&
+        block.children.length
+      ) {
+
         const childContainer =
           document.createElement("div");
 
-        childContainer.className = "children";
+        childContainer.className =
+          "children";
+
 
         renderBlocks(
           block.children,
           childContainer
         );
 
-        wrapper.appendChild(childContainer);
+
+        wrapper.appendChild(
+          childContainer
+        );
+
       }
+
 
       return wrapper;
     }
 
-    function renderBlocks(blocks, parent) {
-      (blocks || []).forEach((block) => {
-        parent.appendChild(renderBlock(block));
-      });
-    }
 
-    function startInstagramRedirect() {
-      let started = false;
+    /* 전체 블록 */
 
-      const observer = new IntersectionObserver(
-        (entries) => {
-          if (
-            entries[0].isIntersecting &&
-            !started
-          ) {
-            started = true;
+    function renderBlocks(
+      blocks,
+      parent
+    ) {
 
-            setTimeout(() => {
-              window.location.href =
-                "https://www.instagram.com/yng_biz/";
-            }, 500);
-          }
-        },
-        {
-          threshold: 0.3
+      (blocks || []).forEach(
+        (block) => {
+
+          parent.appendChild(
+            renderBlock(block)
+          );
+
         }
       );
 
-      observer.observe(instagramEnd);
     }
 
+
+    /* 인스타 이동 */
+
+    function startInstagramRedirect() {
+
+      let started = false;
+
+
+      const observer =
+        new IntersectionObserver(
+
+          (entries) => {
+
+            if (
+              entries[0].isIntersecting &&
+              !started
+            ) {
+
+              started = true;
+
+
+              setTimeout(
+                () => {
+
+                  window.location.href =
+                    "https://www.instagram.com/yng_biz/";
+
+                },
+                500
+              );
+
+            }
+
+          },
+
+          {
+            threshold: 0.3
+          }
+
+        );
+
+
+      observer.observe(
+        instagramEnd
+      );
+
+    }
+
+
+    /* 노션 불러오기 */
+
     async function loadPage() {
-      const pageId = extractPageId(pageValue);
+
+      const pageId =
+        extractPageId(pageValue);
+
 
       if (!pageId) {
+
         loading.innerHTML =
           "불러올 노션 페이지가 지정되지 않았습니다.";
+
         return;
       }
 
-      try {
-        const response = await fetch(
-          "/api/notion?page=" +
-          encodeURIComponent(pageId)
-        );
 
-        const data = await response.json();
+      try {
+
+        const response =
+          await fetch(
+            "/api/notion?page=" +
+            encodeURIComponent(pageId)
+          );
+
+
+        const data =
+          await response.json();
+
 
         if (!response.ok) {
+
           throw new Error(
             data.details ||
             data.error ||
             "페이지를 불러오지 못했습니다."
           );
+
         }
 
-        loading.style.display = "none";
+
+        loading.style.display =
+          "none";
+
 
         if (data.title) {
-          const title = createTextElement(
-            "h1",
-            data.title,
-            "page-title"
-          );
+
+          const title =
+            createTextElement(
+              "h1",
+              data.title,
+              "page-title"
+            );
+
 
           content.appendChild(title);
+
         }
+
 
         renderBlocks(
           data.blocks || [],
           content
         );
 
-        instagramEnd.style.display = "block";
+
+        instagramEnd.style.display =
+          "block";
+
+
         startInstagramRedirect();
 
+
       } catch (error) {
+
         console.error(error);
+
 
         loading.innerHTML =
           "페이지를 불러오지 못했습니다.<br>" +
           "노션 연결 또는 페이지 권한을 확인해주세요.";
+
       }
+
     }
 
+
     loadPage();
+
   </script>
 
 </body>
